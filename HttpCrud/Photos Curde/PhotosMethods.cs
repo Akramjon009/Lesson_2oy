@@ -1,19 +1,15 @@
-﻿using System.Text.Json;
+﻿using System.Net.Http.Json;
+using System.Text.Json;
 using System.Text;
-using System.Net.Http.Json;
-using static HttpCrud.Checkall;
-using System.ComponentModel;
-using System.Reflection;
-using System.Numerics;
-namespace HttpCrud
-{
-    public class todosmathod(HttpClient httpClient)
-    {
 
+namespace HttpCrud.Photos_Curde
+{
+    internal class PhotosMethods
+    {
         #region deleate mathod
         public static async ValueTask<string> DeleteAsync(HttpClient httpClient)
         {
-            HttpResponseMessage response = await httpClient.DeleteAsync("todos/1");
+            HttpResponseMessage response = await httpClient.DeleteAsync("photos/1");
 
             response.EnsureSuccessStatusCode().WriteRequestToConsole();
 
@@ -24,19 +20,19 @@ namespace HttpCrud
         #endregion
 
         #region PatchAsync
-        public static async ValueTask<string> PatchAsync(HttpClient httpClient,string mytitle)
+        public static async ValueTask<string> PatchAsync(HttpClient httpClient, string thumbnailurl)
         {
             using StringContent jsonContent = new
             (
                 JsonSerializer.Serialize(new
                 {
-                    title = mytitle,
+                    thumbnailUrl = thumbnailurl,
                 }),
                 Encoding.UTF8,
                 "application/json"
             );
 
-            HttpResponseMessage response = await httpClient.PatchAsync("todos/1", jsonContent);
+            HttpResponseMessage response = await httpClient.PatchAsync("photos/1", jsonContent);
 
             response.EnsureSuccessStatusCode().WriteRequestToConsole();
 
@@ -47,22 +43,23 @@ namespace HttpCrud
         #endregion
 
         #region PutAsync
-        public static async ValueTask<string> PutAsync(HttpClient httpClient,int userid = 1,int myid =15250 ,string Title= "code work",bool check = true)
+        public static async ValueTask<string> PutAsync(HttpClient httpClient,int albumid,int Id,string Title,string Url,string ThumbnailUrl)
         {
             using StringContent jsonContent = new
             (
                 JsonSerializer.Serialize(new
                 {
-                    userId = userid,
-                    id = myid,
+                    albumId = albumid,
+                    id = Id,
                     title = Title,
-                    completed = check
+                    url = Url,
+                    thumbnailUrl = ThumbnailUrl
                 }),
                 Encoding.UTF8,
                 "application/json"
             );
 
-            HttpResponseMessage response = await httpClient.PutAsync("todos/1", jsonContent);
+            HttpResponseMessage response = await httpClient.PutAsync("comments/1", jsonContent);
 
             response.EnsureSuccessStatusCode().WriteRequestToConsole();
 
@@ -73,24 +70,12 @@ namespace HttpCrud
         #endregion
 
         #region PostAsync
-        public static async ValueTask<string> PostAsync(HttpClient httpClient,int userid,int myid,string title,bool check )
+        public static async ValueTask<string> PostAsync(HttpClient httpClient, int albumid, int Id, string Title, string Url, string ThumbnailUrl)
         {
-            using StringContent jsonContent = new
-            (
-                JsonSerializer.Serialize(new
-                {
-                    userId = 77,
-                    id = 1,
-                    title = "write code",
-                    completed = false
-                }),
-                Encoding.UTF8,
-                "application/json"
-            );
 
-            HttpResponseMessage response = await httpClient.PostAsJsonAsync("todos", new Todo(UserId: userid, Id: myid, Title: title, Completed: check));
+            HttpResponseMessage response = await httpClient.PostAsJsonAsync("photos", new Root(albumId: albumid, id: Id, title: Title, url: Url, thumbnailUrl: ThumbnailUrl));
 
-            response.EnsureSuccessStatusCode().WriteRequestToConsole() ;
+            response.EnsureSuccessStatusCode().WriteRequestToConsole();
 
             string jsonResult = await response.Content.ReadAsStringAsync();
 
@@ -102,7 +87,7 @@ namespace HttpCrud
         public static async Task GetAsync(HttpClient httpClient)
         {
 
-            using HttpResponseMessage response = await httpClient.GetAsync("todos/1");
+            using HttpResponseMessage response = await httpClient.GetAsync("photos/1");
 
             response.EnsureSuccessStatusCode().WriteRequestToConsole();
 
@@ -111,6 +96,5 @@ namespace HttpCrud
             Console.WriteLine($"{jsonResponse}\n");
         }
         #endregion
-
     }
 }

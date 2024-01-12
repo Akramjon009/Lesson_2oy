@@ -1,13 +1,15 @@
 ﻿namespace HttpCrud.Comments_Crude
 {
-    internal static class commentsjson
-    {
-        public record class Todo
+    public record class commentsdo
         (
-        int? UserId = null,
-        int? Id = null,
-        string? Title = null,
-        bool? Completed = null
+            
+            int? postId =null,
+            int? id =null,
+            string? name=null, 
+            string? email =null,
+            string? body =null
+          
+
         );
-    }
+    
 }
