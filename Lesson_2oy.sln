@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpCrud", "HttpCrud\HttpCrud.csproj", "{10087292-DC08-4605-9198-96C29E54AE4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpCrud", "HttpCrud\HttpCrud.csproj", "{10087292-DC08-4605-9198-96C29E54AE4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyTelegram_bot", "MyTelegram_bot", "{D2BFE9F7-AF88-4CDA-8002-8A77A1BD0D1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Superdotnerbot", "Superdotnerbot\Superdotnerbot.csproj", "{89A4BA3A-2AC2-4448-8A54-84D0D9577DE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAFex project", "DAFex project", "{AA22C58B-C855-4B36-B14B-71F543DB10C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DafexMotors", "DafexMotors\DafexMotors.csproj", "{13AEBB13-0057-40BB-9912-5D4F7F3B858D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +23,21 @@ Global
 		{10087292-DC08-4605-9198-96C29E54AE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10087292-DC08-4605-9198-96C29E54AE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10087292-DC08-4605-9198-96C29E54AE4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A4BA3A-2AC2-4448-8A54-84D0D9577DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A4BA3A-2AC2-4448-8A54-84D0D9577DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A4BA3A-2AC2-4448-8A54-84D0D9577DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A4BA3A-2AC2-4448-8A54-84D0D9577DE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13AEBB13-0057-40BB-9912-5D4F7F3B858D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13AEBB13-0057-40BB-9912-5D4F7F3B858D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13AEBB13-0057-40BB-9912-5D4F7F3B858D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13AEBB13-0057-40BB-9912-5D4F7F3B858D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{89A4BA3A-2AC2-4448-8A54-84D0D9577DE1} = {D2BFE9F7-AF88-4CDA-8002-8A77A1BD0D1C}
+		{13AEBB13-0057-40BB-9912-5D4F7F3B858D} = {AA22C58B-C855-4B36-B14B-71F543DB10C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A47C172C-A66C-48BB-91C0-EBA8584FEFB6}
